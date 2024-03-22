@@ -5,3 +5,5 @@ require_once dirname(__FILE__).'/config.php';	// biblioteki, bez nich nie ma co
 include _ROOT_PATH.'/app/calc_view.php';	//
 
 //require / include _once >>> przed załadowaniem sprawdza, czy już go nie ma
+
+//TEST: modified via laptop

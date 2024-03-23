@@ -17,22 +17,20 @@
 </div>
 
 <div style="width:90%; margin: 2em auto;">
-
+    
+    <h1>Kalkulator lokaty</h1>
 <form action="<?php print(_APP_ROOT); ?>/app/calc.php" method="post" class="pure-form pure-form-stacked">
 	<legend>Kalkulator</legend>
 	<fieldset>
-		<label for="id_x">Liczba 1: </label>
-		<input id="id_x" type="text" name="x" value="<?php out($x) ?>" />
-		<label for="id_op">Operacja: </label>
-		<select name="op">	
-			<option value="plus">+</option>
-			<option value="minus">-</option>
-			<option value="times">*</option>
-			<option value="div">/</option>
-		</select>
-		<label for="id_y">Liczba 2: </label>
-		<input id="id_y" type="text" name="y" value="<?php out($y) ?>" />
-	</fieldset>	
+	<label for="id_cash">Kwota depozytu [PLN]: </label> <br />
+        <input id="id_cash" type="text" name="cash" value="<?php out($cash); ?>" /><br />
+        
+        <label for="id_time">Czas lokaty [liczba miesięcy]: </label> <br />
+        <input id="id_time" type="text" name="time" value="<?php out($time); ?>" /><br />
+        
+        <label for="id_percent">Oprocentowanie w skali roku [%]: </label> <br />
+	<input id="id_percent" type="text" name="percent" value="<?php out($percent); ?>" /><br />
+        </fieldset>
 	<input type="submit" value="Oblicz" class="pure-button pure-button-primary" />
 </form>	
 
@@ -40,7 +38,7 @@
 //wyświeltenie listy błędów, jeśli istnieją
 if (isset($messages)) {
 	if (count ( $messages ) > 0) {
-		echo '<ol style="margin-top: 1em; padding: 1em 1em 1em 2em; border-radius: 0.5em; background-color: #f88; width:25em;">';
+		echo '<ol style="margin: 20px; padding: 10px 10px 10px 30px; border-radius: 5px; background-color: #f88; width:400px;">';
 		foreach ( $messages as $key => $msg ) {
 			echo '<li>'.$msg.'</li>';
 		}
@@ -50,12 +48,13 @@ if (isset($messages)) {
 ?>
 
 <?php if (isset($result)){ ?>
-<div style="margin-top: 1em; padding: 1em; border-radius: 0.5em; background-color: #ff0; width:25em;">
-<?php echo 'Wynik: '.$result; ?>
+<div style="margin: 20px; padding: 10px; border-radius: 5px; background-color: #0f0; width:300px;">
+<?php echo 'Zysk nominalny (brutto): '.$result.' zł<br />' ;
+//      echo '<b>Zysk (netto): '.$result_netto.' zł<b/>' ;
+
+?>
+    
 </div>
 <?php } ?>
-
-</div>
-
 </body>
 </html>

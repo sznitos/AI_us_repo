@@ -1,0 +1,8 @@
+AI - ochrona dostępu
+
+to do:
+dołożenie security do kalkulatora
++ podzial na funkcje
+
+bez podzialu na role , dodac kto zalogowany
+- wykorzystac pureCSS

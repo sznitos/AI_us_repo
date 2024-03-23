@@ -1,101 +1,118 @@
 <?php
-require_once dirname(__FILE__).'/../config.php';
-
 // KONTROLER strony kalkulatora
+require_once dirname(__FILE__).'/../config.php';
 
 // W kontrolerze niczego nie wysyła się do klienta.
 // Wysłaniem odpowiedzi zajmie się odpowiedni widok.
 // Parametry do widoku przekazujemy przez zmienne.
-
-//ochrona kontrolera - poniższy skrypt przerwie przetwarzanie w tym punkcie gdy użytkownik jest niezalogowany
 include _ROOT_PATH.'/app/security/check.php';
 
+// 1. pobranie parametrów
 //pobranie parametrów
-function getParams(&$x,&$y,&$operation){
-	$x = isset($_REQUEST['x']) ? $_REQUEST['x'] : null;
-	$y = isset($_REQUEST['y']) ? $_REQUEST['y'] : null;
-	$operation = isset($_REQUEST['op']) ? $_REQUEST['op'] : null;	
+function getParams(&$cash,&$time,&$percent){
+	$cash = isset($_REQUEST['cash']) ? $_REQUEST['cash'] : null;
+	$time = isset($_REQUEST['time']) ? $_REQUEST['time'] : null;
+	$percent = isset($_REQUEST['percent']) ? $_REQUEST['percent'] : null;	
 }
+// 2. walidacja parametrów z przygotowaniem zmiennych dla widoku
+// sprawdzenie, czy parametry zostały przekazane
+
+//function validate(&$cash,&$time,&$percent,&$messages){
+//    if ( ! (isset($cash) && isset($time) && isset($percent))) {
+//    	//sytuacja wystąpi kiedy np. kontroler zostanie wywołany bezpośrednio - nie z formularza
+//    	return false;
+//    }
+//    // usuniecie bialych znakow 10 000 > 10000 w celu unikniecia błędów + zignorowanie znakow [ . , ]
+//    $cash = preg_replace('/[ ,.]/', '', $cash);
+//    $percent = str_replace(',', '.',$percent);
+//    print("TEST:".$cash.$time.$percent);
+//     if ( $cash == "" || $cash <= 0) {
+//    	$messages [] = 'Nie podano prawidłowej kwoty depozytu!';
+//    }
+//    if ( $time == "" || $time <= 0) {
+//    	$messages [] = 'Nie podano prawidłowej długości trwania depozytu!';
+//    }
+//    if ( $percent == "" || $percent <= 0) {
+//    	$messages [] = 'Wprowadzono niepoprawną wartości oprocentowania!';
+//    }
+//    if (empty( $messages )) {
+//    	if (! is_numeric( $cash )) {
+//            	$messages [] = 'Wprowadzono <b>niepoprawnie</b> wartość depozytu!';
+//            }
+//    	if (! is_numeric( $time )) {
+//    		$messages [] = 'Wprowadzono <b>niepoprawnie</b> czas trawnia lokaty!';
+//    	}
+//            if (! is_numeric( $percent )) {
+//    		$messages [] = 'Wprowadzono <b>niepoprawnie</b> wartość oprocentowania!';
+//	}
+//    }
+//    //nie ma sensu walidować dalej gdy brak parametrów
+//    print(count ($messages));
+//
+//    if (count ( $messages ) != 0) return false;
+//    	else return true;
+//}
+
+// NEW
 
 //walidacja parametrów z przygotowaniem zmiennych dla widoku
-function validate(&$x,&$y,&$operation,&$messages){
+function validate(&$cash,&$time,&$percent,&$messages){
 	// sprawdzenie, czy parametry zostały przekazane
-	if ( ! (isset($x) && isset($y) && isset($operation))) {
+	if ( ! (isset($cash) && isset($time) && isset($percent))) {
 		// sytuacja wystąpi kiedy np. kontroler zostanie wywołany bezpośrednio - nie z formularza
 		// teraz zakładamy, ze nie jest to błąd. Po prostu nie wykonamy obliczeń
 		return false;
 	}
 
 	// sprawdzenie, czy potrzebne wartości zostały przekazane
-	if ( $x == "") {
+	if ( $cash == "") {
 		$messages [] = 'Nie podano liczby 1';
 	}
-	if ( $y == "") {
+	if ( $time == "") {
 		$messages [] = 'Nie podano liczby 2';
 	}
 
 	//nie ma sensu walidować dalej gdy brak parametrów
 	if (count ( $messages ) != 0) return false;
 	
-	// sprawdzenie, czy $x i $y są liczbami całkowitymi
-	if (! is_numeric( $x )) {
+	// sprawdzenie, czy $cash i $time są liczbami całkowitymi
+	if (! is_numeric( $cash )) {
 		$messages [] = 'Pierwsza wartość nie jest liczbą całkowitą';
 	}
 	
-	if (! is_numeric( $y )) {
+	if (! is_numeric( $time )) {
 		$messages [] = 'Druga wartość nie jest liczbą całkowitą';
 	}	
 
 	if (count ( $messages ) != 0) return false;
 	else return true;
 }
-
-function process(&$x,&$y,&$operation,&$messages,&$result){
+function process(&$cash,&$time,&$percent,&$messages,&$result){
 	global $role;
 	
 	//konwersja parametrów na int
-	$x = intval($x);
-	$y = intval($y);
+	$cash = intval($cash);
+	$time = intval($time);
 	
 	//wykonanie operacji
-	switch ($operation) {
-		case 'minus' :
-			if ($role == 'admin'){
-				$result = $x - $y;
-			} else {
-				$messages [] = 'Tylko administrator może odejmować !';
-			}
-			break;
-		case 'times' :
-			$result = $x * $y;
-			break;
-		case 'div' :
-			if ($role == 'admin'){
-				$result = $x / $y;
-			} else {
-				$messages [] = 'Tylko administrator może dzielić !';
-			}
-			break;
-		default :
-			$result = $x + $y;
-			break;
-	}
+        $result = $cash * $time * $percent * 0.01; 
+
 }
 
 //definicja zmiennych kontrolera
-$x = null;
-$y = null;
-$operation = null;
+$cash = null;
+$time = null;
+$percent = null;
 $result = null;
 $messages = array();
 
 //pobierz parametry i wykonaj zadanie jeśli wszystko w porządku
-getParams($x,$y,$operation);
-if ( validate($x,$y,$operation,$messages) ) { // gdy brak błędów
-	process($x,$y,$operation,$messages,$result);
+getParams($cash,$time,$percent);
+if ( validate($cash,$time,$percent,$messages) ) { // gdy brak błędów
+	process($cash,$time,$percent,$messages,$result);
 }
 
 // Wywołanie widoku z przekazaniem zmiennych
-// - zainicjowane zmienne ($messages,$x,$y,$operation,$result)
+// - zainicjowane zmienne ($messages,$cash,$time,$percent,$result)
 //   będą dostępne w dołączonym skrypcie
 include 'calc_view.php';

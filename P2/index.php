@@ -1,7 +1,7 @@
 <?php
 require_once dirname(__FILE__).'/config.php';
 
-//przekierowanie przeglądarki klienta (redirect)
+//przekierowanie przeglądarki klienta (redirect) -to samo co include, ale zmienia adres www
 //header("Location: "._APP_URL."/app/calc.php");
 
 //przekazanie żądania do następnego dokumentu ("forward")

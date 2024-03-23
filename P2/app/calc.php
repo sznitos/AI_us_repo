@@ -66,10 +66,13 @@ function validate(&$cash,&$time,&$percent,&$messages){
 
 	// sprawdzenie, czy potrzebne wartości zostały przekazane
 	if ( $cash == "") {
-		$messages [] = 'Nie podano liczby 1';
+		$messages [] = 'Nie podano kwoty depozytu';
 	}
 	if ( $time == "") {
-		$messages [] = 'Nie podano liczby 2';
+		$messages [] = 'Nie podano czasu trwania lokaty';
+	}
+        if ( $percent == "") {
+		$messages [] = 'Nie podano oprocentowania w skali roku lokaty';
 	}
 
 	//nie ma sensu walidować dalej gdy brak parametrów
@@ -81,13 +84,15 @@ function validate(&$cash,&$time,&$percent,&$messages){
 	}
 	
 	if (! is_numeric( $time )) {
-		$messages [] = 'Druga wartość nie jest liczbą całkowitą';
+		$messages [] = 'Wartość czasu depozytu musi być liczbą całkowitą';
 	}	
-
+	if ( ( $percent <= 0.00 )) {
+		$messages [] = 'Oprocentowanie nie może być mniejsze od 0';
+	}
 	if (count ( $messages ) != 0) return false;
 	else return true;
 }
-function process(&$cash,&$time,&$percent,&$messages,&$result){
+function process(&$cash,&$time,&$percent,&$messages,&$result, &$result_netto){
 	global $role;
 	
 	//konwersja parametrów na int
@@ -96,6 +101,7 @@ function process(&$cash,&$time,&$percent,&$messages,&$result){
 	
 	//wykonanie operacji
         $result = $cash * $time * $percent * 0.01; 
+        $result_netto = $result * (1 - 0.23);
 
 }
 
@@ -104,12 +110,13 @@ $cash = null;
 $time = null;
 $percent = null;
 $result = null;
+$result_netto = null;
 $messages = array();
 
 //pobierz parametry i wykonaj zadanie jeśli wszystko w porządku
 getParams($cash,$time,$percent);
 if ( validate($cash,$time,$percent,$messages) ) { // gdy brak błędów
-	process($cash,$time,$percent,$messages,$result);
+	process($cash,$time,$percent,$messages,$result,$result_netto);
 }
 
 // Wywołanie widoku z przekazaniem zmiennych

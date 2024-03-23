@@ -19,7 +19,7 @@
 <div style="width:90%; margin: 2em auto;">
     
     <h1>Kalkulator lokaty</h1>
-<form action="<?php print(_APP_ROOT); ?>/app/calc.php" method="post" class="pure-form pure-form-stacked">
+<form action="<?php print(_APP_ROOT); ?>/app/calc.php" method="post" class="pure-form pure-form-aligned">
 	<legend>Kalkulator</legend>
 	<fieldset>
 	<label for="id_cash">Kwota depozytu [PLN]: </label> <br />
@@ -50,7 +50,7 @@ if (isset($messages)) {
 <?php if (isset($result)){ ?>
 <div style="margin: 20px; padding: 10px; border-radius: 5px; background-color: #0f0; width:300px;">
 <?php echo 'Zysk nominalny (brutto): '.$result.' zł<br />' ;
-//      echo '<b>Zysk (netto): '.$result_netto.' zł<b/>' ;
+      echo '<b>Zysk (netto): '.$result_netto.' zł<b/>' ;
 
 ?>
     

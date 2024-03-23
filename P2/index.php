@@ -1,9 +1,8 @@
 <?php
+require_once dirname(__FILE__).'/config.php';
 
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
- */
+//przekierowanie przeglądarki klienta (redirect)
+//header("Location: "._APP_URL."/app/calc.php");
 
-?>
-plik nr 2
+//przekazanie żądania do następnego dokumentu ("forward")
+include _ROOT_PATH.'/app/calc.php';

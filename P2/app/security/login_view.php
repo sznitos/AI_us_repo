@@ -10,7 +10,7 @@
 <div style="width:90%; margin: 2em auto;">
 
 <form action="<?php print(_APP_ROOT); ?>/app/security/login.php" method="post" class="pure-form pure-form-stacked">
-	<legend>Logowanie</legend>
+    <legend><h3>Logowanie</h3></legend>
 	<fieldset>
 		<label for="id_login">login: </label>
 		<input id="id_login" type="text" name="login" value="<?php out($form['login']); ?>" />

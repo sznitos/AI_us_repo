@@ -12,16 +12,17 @@
 <body>
 
 <div style="width:90%; margin: 2em auto;">
-	<a href="<?php print(_APP_ROOT); ?>/app/inna_chroniona.php" class="pure-button">kolejna chroniona strona</a>
+	<a href="<?php print(_APP_ROOT); ?>/app/inna_chroniona.php" class="pure-button">Inna chroniona strona</a>
 	<a href="<?php print(_APP_ROOT); ?>/app/security/logout.php" class="pure-button pure-button-active">Wyloguj</a>
 </div>
 
 <div style="width:90%; margin: 2em auto;">
     
     <h1>Kalkulator lokaty</h1>
-<form action="<?php print(_APP_ROOT); ?>/app/calc.php" method="post" class="pure-form pure-form-aligned">
-	<legend>Kalkulator</legend>
-	<fieldset>
+<form action="<?php print(_APP_ROOT); ?>/app/calc.php" method="post" class="pure-form pure-form-stacked">
+        <legend><b>Cześć, <?php echo $role; echo($role=="admin") ? (" 😎✨") : (" 😊"); ?>!</b> </br>Wprowadź dane do kalkulatora lokat. </legend>
+
+        <fieldset>
 	<label for="id_cash">Kwota depozytu [PLN]: </label> <br />
         <input id="id_cash" type="text" name="cash" value="<?php out($cash); ?>" /><br />
         
@@ -36,7 +37,7 @@
 
 <?php
 //wyświeltenie listy błędów, jeśli istnieją
-if (isset($messages)) {
+if (isset($messages) && is_array($messages)) {
 	if (count ( $messages ) > 0) {
 		echo '<ol style="margin: 20px; padding: 10px 10px 10px 30px; border-radius: 5px; background-color: #f88; width:400px;">';
 		foreach ( $messages as $key => $msg ) {
@@ -47,10 +48,10 @@ if (isset($messages)) {
 }
 ?>
 
-<?php if (isset($result)){ ?>
+<?php if (isset($result) && isset($result_netto)){ ?>
 <div style="margin: 20px; padding: 10px; border-radius: 5px; background-color: #0f0; width:300px;">
-<?php echo 'Zysk nominalny (brutto): '.$result.' zł<br />' ;
-      echo '<b>Zysk (netto): '.$result_netto.' zł<b/>' ;
+<?php echo "Zysk nominalny (brutto): ".$result." zł<br />" ;
+      echo "<b>Zysk (netto): ".$result_netto." zł<b/>" ;
 
 ?>
     

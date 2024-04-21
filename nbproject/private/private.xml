@@ -3,17 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P1/app/calc.php</file>
-            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P1/app/calc_view.php</file>
-            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P1/config.php</file>
-            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P1/index.php</file>
-=======
-            <file>file:/C:/xampp/htdocs/AI-repo/P2/app/security/check.php</file>
-            <file>file:/C:/xampp/htdocs/AI-repo/P2/app/calc.php</file>
-            <file>file:/C:/xampp/htdocs/AI-repo/P2%20—%20kopia/app/calc.php</file>
-            <file>file:/C:/xampp/htdocs/AI-repo/P2/app/calc_view.php</file>
->>>>>>> 5fb38a4314c7c80ad5e04a0a6e4b206d7dd95ba6
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P4/config.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P4/templates/main.tpl</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P4/app/calc.tpl</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P4_cp/app/calc.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P4_cp/config.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P4_cp/templates/main.tpl</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P4/index.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P4/app/calc.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P4_cp/app/calc.tpl</file>
         </group>
     </open-files>
 </project-private>

@@ -1,11 +1,12 @@
 ## Place downloaded directories into dir named 'AI-repo'
+ eg. for project 4:
+``` C:\xampp\htdocs\AI-repo\P5 ```
 
-### eg. for project 4:
-### C:\xampp\htdocs\AI-repo\P5
+To enter view page type into address bar for example: 
+```http://localhost/AI-repo/P5/```
 
-### To enter view page type into address bar for example: http://localhost/AI-repo/P5/
-
-
+-------------------------------------------------------
+```
 Landed by HTML5 UP
 html5up.net | @ajlkn
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
@@ -41,3 +42,4 @@ Credits:
 		jQuery (jquery.com)
 		Scrollex (github.com/ajlkn/jquery.scrollex)
 		Responsive Tools (github.com/ajlkn/responsive-tools)
+```

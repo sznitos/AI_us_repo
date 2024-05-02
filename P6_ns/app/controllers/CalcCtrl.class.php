@@ -10,7 +10,7 @@ class CalcCtrl {
     private $result_netto;
 
     public function __construct() {
-        $this->msgs = new Messages();
+//        $this->msgs = new Messages();
         $this->form = new CalcForm();
         $this->result = new CalcResult();
         $this->result_netto = new CalcResult();
@@ -49,13 +49,13 @@ class CalcCtrl {
         // sprawdzenie, czy $this->form->cash i $this->form->time są liczbami całkowitymi
         if (! getMessages()->isError()) {
             if ((!is_numeric($this->form->cash) ) || ($this->form->cash <= 0)) {
-                getMessages()->addError('Podaj poprawną <b>kwotę depozytu!');
+                getMessages()->addError('Podaj poprawną <b>kwotę depozytu!</b>');
             }
             if ((!is_numeric($this->form->time)) || ($this->form->time <= 0)) {
-                getMessages()->addError('Wprowadź poprawny <b>czas depozytu!</b>');
+                getMessages()->addError('Podaj poprawny <b>czas depozytu!</b>');
             }
             if ((!is_numeric($this->form->percent)) || ($this->form->percent <= 0.00)) {
-                getMessages()->addError('Wprowadź poprawną <b>wysokość oprocentowania</b>');
+                getMessages()->addError('Podaj poprawną <b>wysokość oprocentowania!</b>');
             }
         }
         return ! getMessages()->isError();
@@ -68,11 +68,11 @@ class CalcCtrl {
                 //konwersja parametrów na int
                 $this->form->cash = intval($this->form->cash);
                 $this->form->time = intval($this->form->time);
+                $this->form->percent = intval($this->form->percent);
                 getMessages()->addInfo('Parametry poprawne.');
 
                 //wykonanie operacji + zaokraglij do 2 miejsc po przecinku (grosza nie połamiemy)
                 $this->result->result = round(($this->form->cash * $this->form->time * $this->form->percent * 0.01), 2);
-//                $this->result_netto->result_netto = round($this->result * (1 - 0.23), 2);
                 $this->result_netto->result_netto = round($this->result->result * (1 - 0.23), 2);
 
                 getMessages()->addInfo('Wykonano obliczenia.');
@@ -80,18 +80,16 @@ class CalcCtrl {
             $this->generateView();
         }
 
-
-        public function generateView(){    
-            getSmarty()->assign('page_title', 'Kalkulator lokat');
-            getSmarty()->assign('page_description', 'Jedyny słuszny kalkulator lokat');
-            getSmarty()->assign('page_header', 'Szablony Smarty');
+public function generateView(){    
+    getSmarty()->assign('page_title', 'Kalkulator lokat');
+    getSmarty()->assign('page_description', 'Jedyny słuszny kalkulator lokat');
+    getSmarty()->assign('page_header', 'Szablony Smarty');
 //            getSmarty()->assign('css_path', $conf->css_path);
-            getSmarty()->assign('msgs',$this->msgs);    
-            getSmarty()->assign('form',$this->form);
-            getSmarty()->assign('res',$this->result);
-            getSmarty()->assign('res_n',$this->result_netto);
+//    getSmarty()->assign('msgs',$this->msgs);    
+    getSmarty()->assign('form',$this->form);
+    getSmarty()->assign('res',$this->result);
+    getSmarty()->assign('res_n',$this->result_netto);
 
-            getSmarty()->display('CalcView.php');
-
+    getSmarty()->display('CalcView.php');
     }
 }

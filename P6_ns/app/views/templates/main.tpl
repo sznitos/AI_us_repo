@@ -6,8 +6,8 @@
 	<meta name="description" content="{$page_description|default:"Opis domyślny"}">
     <title>{$page_title|default:"Kalkulator lokat"}</title>
 
-    <link rel="stylesheet" href="{$root_path}/assets/css/main.css">
-         <noscript><link rel="stylesheet" href="{$root_path}/assets/css/noscript.css"> </noscript>
+    <link rel="stylesheet" href="{$conf->app_url}/assets/css/main.css">
+         <noscript><link rel="stylesheet" href="{$conf->app_url}/assets/css/noscript.css"> </noscript>
 
 </head>
 <body class="is-preload">

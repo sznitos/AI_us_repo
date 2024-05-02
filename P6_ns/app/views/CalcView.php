@@ -1,4 +1,4 @@
-{extends file=$conf->root_path|cat:"/app/views/templates/main.tpl"}
+{extends file="main.tpl"}
 
 {block name=footer}przykładowa tresć stopki wpisana do szablonu głównego z szablonu kalkulatora{/block}
 
@@ -34,8 +34,7 @@ echo($role == "admin") ? (" 😎✨") : (" 😊"); ?>! </br>Wprowadź dane do ka
             </form>	
             
         <div class="messages">
-
-            {* wyświeltenie listy błędów, jeśli istnieją *}
+            <!--{* wyświeltenie listy błędów, jeśli istnieją *}-->
             {if $msgs->isError()}
             <h4>Wystąpiły błędy: </h4>
             <ol class="err">

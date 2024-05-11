@@ -1,7 +1,10 @@
-<?php
+<?php namespace app\controllers;
 
-require_once 'CalcForm.class.php';
-require_once 'CalcResult.class.php';
+use app\forms\CalcForm;
+use app\transfer\CalcResult;
+
+//require_once 'CalcForm.class.php';
+//require_once 'CalcResult.class.php';
 
 class CalcCtrl {
     private $msgs;

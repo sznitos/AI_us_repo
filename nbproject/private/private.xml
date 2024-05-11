@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P6_namespaces/core/ClassLoader.class.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P6_namespaces/config.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P6_namespaces/ctrl.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P6_namespaces/app/controllers/CalcCtrl.class.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P6_namespaces/core/Config.class.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P6_namespaces/index.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P6_namespaces/app/forms/CalcForm.class.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P6_namespaces/app/transfer/CalcResult.class.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P6_namespaces/core/Messages.class.php</file>
+            <file>file:/F:/Programy/xampp/htdocs/AI-repo/P6_namespaces/core/functions.php</file>
+        </group>
     </open-files>
 </project-private>

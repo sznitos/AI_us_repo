@@ -4,14 +4,14 @@
 switch ($action) {
 	default : // 'calcView'
 	    // załaduj definicję kontrolera
-		include_once 'app/controllers/CalcCtrl.class.php';
+//		include_once 'app/controllers/CalcCtrl.class.php';
 		// utwórz obiekt i uzyj
 		$ctrl = new \app\controllers\CalcCtrl ();
 		$ctrl->generateView ();
 	break;
 	case 'calcCompute' :
 		// załaduj definicję kontrolera
-		include_once 'app/controllers/CalcCtrl.class.php';
+//		include_once 'app/controllers/CalcCtrl.class.php';
 		// utwórz obiekt i uzyj
 		$ctrl = new \app\controllers\CalcCtrl ();
 		$ctrl->process ();

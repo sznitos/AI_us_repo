@@ -1,18 +1,30 @@
 <?php
+<<<<<<< OURS
+/* Smarty version 4.5.2, created on 2024-05-25 00:05:17
+=======
 /* Smarty version 4.5.2, created on 2024-05-24 21:31:44
+>>>>>>> THEIRS
   from 'F:\Programy\xampp\htdocs\AI-repo\P7\app\views\templates\main.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.2',
+<<<<<<< OURS
+  'unifunc' => 'content_66510f1d3b9f11_48043207',
+=======
   'unifunc' => 'content_6650eb2070f427_08591027',
+>>>>>>> THEIRS
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'f9bee63ed5536a549c67c7d53c4dc05688a98c8c' => 
     array (
       0 => 'F:\\Programy\\xampp\\htdocs\\AI-repo\\P7\\app\\views\\templates\\main.tpl',
+<<<<<<< OURS
+      1 => 1716588315,
+=======
       1 => 1716579102,
+>>>>>>> THEIRS
       2 => 'file',
     ),
   ),
@@ -20,7 +32,11 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
+<<<<<<< OURS
+function content_66510f1d3b9f11_48043207 (Smarty_Internal_Template $_smarty_tpl) {
+=======
 function content_6650eb2070f427_08591027 (Smarty_Internal_Template $_smarty_tpl) {
+>>>>>>> THEIRS
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -39,6 +55,8 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
          <noscript><link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->app_url;?>
 /assets/css/noscript.css"> </noscript>
 
+
+
 </head>
 <body class="is-preload">
 <div id="page-wrapper">
@@ -52,8 +70,19 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
             <li class="pure-menu-selected"><a href="#app_top">Góra strony</a></li>
             
             <li><a href="#app_content">Idź do formularza</a></li>
+<<<<<<< OURS
+            
+            <?php if ((isset($_smarty_tpl->tpl_vars['user']->value))) {?>
+                <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
+logout" class="pure-menu-heading pure-menu-link">Wyloguj się</a></li>
+            <?php }?>
+
+
+</div>
+=======
             <li><a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_url;?>
 logout"  class="pure-menu-heading pure-menu-link">Wyloguj się</a></li>
+>>>>>>> THEIRS
         </ul></nav>
     </div>
     </div></div>
@@ -74,7 +103,11 @@ logout"  class="pure-menu-heading pure-menu-link">Wyloguj się</a></li>
     <div class="container">
 
 <?php 
+<<<<<<< OURS
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_198014586766510f1d3b9294_10218695', 'content');
+=======
 $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17313130696650eb2070e440_16054985', 'content');
+>>>>>>> THEIRS
 ?>
 
     </div>
@@ -119,12 +152,20 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17313130696650eb20
 	</body>
 </html><?php }
 /* {block 'content'} */
+<<<<<<< OURS
+class Block_198014586766510f1d3b9294_10218695 extends Smarty_Internal_Block
+=======
 class Block_17313130696650eb2070e440_16054985 extends Smarty_Internal_Block
+>>>>>>> THEIRS
 {
 public $subBlocks = array (
   'content' => 
   array (
+<<<<<<< OURS
+    0 => 'Block_198014586766510f1d3b9294_10218695',
+=======
     0 => 'Block_17313130696650eb2070e440_16054985',
+>>>>>>> THEIRS
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

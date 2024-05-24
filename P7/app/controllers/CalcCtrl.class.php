@@ -64,7 +64,7 @@ class CalcCtrl {
         return ! getMessages()->isError();
     }
 
-        public function process() {
+        public function action_calcCompute() {
             $this->getparams();
             
             if ($this->validate()) {
@@ -82,6 +82,9 @@ class CalcCtrl {
             }
             $this->generateView();
         }
+public function action_calcShow(){
+    $this->generateView();
+}
 
 public function generateView(){    
     getSmarty()->assign('page_title', 'Kalkulator lokat');

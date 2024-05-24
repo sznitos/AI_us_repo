@@ -3,7 +3,7 @@
 ``` ...\htdocs\AI-repo\P7 ```
 
 To enter view page type into address bar for example: 
-```http://localhost/AI-repo/P5/```
+```http://localhost/AI-repo/P7/```
 
 -------------------------------------------------------
 ```

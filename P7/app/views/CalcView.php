@@ -11,8 +11,7 @@
     <div class="container">
         <h3>Kalkulator lokaty</h3>
         <div class="row gtr-150">
-            <div class="col-4 col-12-medium">Cześć, <?php echo $role;
-echo($role == "admin") ? (" 😎✨") : (" 😊"); ?>! </br>Wprowadź dane do kalkulatora lokat.</div>
+            <div class="col-4 col-12-medium">Wprowadź dane do kalkulatora lokat.</div>
             
             <form action="{$conf->action_root}calcCompute" method="post">
                 <div class="row gtr-uniform gtr-50">
@@ -32,35 +31,11 @@ echo($role == "admin") ? (" 😎✨") : (" 😊"); ?>! </br>Wprowadź dane do ka
                         </ul>
                     </div> </div>   
             </form>	
-            
-        <div class="messages">
-            <!--{* wyświeltenie listy błędów, jeśli istnieją *}-->
-            {if $msgs->isError()}
-            <h4>Wystąpiły błędy: </h4>
-            <ol class="err">
-                {foreach $msgs->getErrors() as $err}
-                {strip}
-                <li>{$err}</li>
-                {/strip}
-                {/foreach}
-            </ol>
-            {/if}
+{include file='messages.tpl'}
 
-            {* wyświeltenie listy informacji, jeśli istnieją *}
-            {if $msgs->isInfo()}
-            <h4>Informacje: </h4>
-            <ol class="inf">
-                {foreach $msgs->getInfos() as $inf}
-                {strip}
-                <li>{$inf}</li>
-                {/strip}
-                {/foreach}
-            </ol>
-            {/if}
-
-            {if isset($res->result)}
-            <h4>Wynik</h4>
-            Zysk (zł):<p>
+{if isset($res->result)}
+<div class ="col-4 col-12-medium">
+    <b>Zysk (zł):</b>
             <table>
                 <tr>
                     <th>BRUTTO</th>
@@ -73,10 +48,8 @@ echo($role == "admin") ? (" 😎✨") : (" 😊"); ?>! </br>Wprowadź dane do ka
                     {$res_n->result_netto}
                 </td>
             </table>
-            </p>
 
-            {/if}
+            </div>
+{/if}
 
-        </div>
-
-        {/block}
+{/block}

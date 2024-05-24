@@ -40,7 +40,10 @@ function &getLoader() {
     global $cloader;
     return $cloader;
 }
-
 require_once 'core/functions.php';
+
+session_start(); //uruchom lub kontynuuj sesję
+$conf->roles = isset($_SESSION['_roles']) ? unserialize($_SESSION['_roles']) : array(); //wczytaj role
+
 
 $action = getFromRequest('action');

@@ -75,10 +75,11 @@ class LoginCtrl{
 		
 		if ($this->validate()){
 			//zalogowany => przekieruj na stronę główną, gdzie uruchomiona zostanie domyślna akcja
-			header("Location: ".getConf()->app_url."/");
+//			header("Location: ".getConf()->app_url."/xd");
+                        $this->generateView();	
 		} else {
 			//niezalogowany => wyświetl stronę logowania
-			$this->generateView(); 
+			$this->generateView_unsig(); 
 		}
 		
 	}
@@ -90,13 +91,20 @@ class LoginCtrl{
 		// 2. wyświetl stronę logowania z informacją
 		getMessages()->addInfo('Poprawnie wylogowano z systemu');
 
-		$this->generateView();		 
+		$this->generateView_unsig();		 
 	}
 	
-	public function generateView(){
+	public function generateView_unsig(){
 		
 		getSmarty()->assign('page_title','Strona logowania');
 		getSmarty()->assign('form',$this->form);
 		getSmarty()->display('LoginView.tpl');		
+	}
+        
+        public function generateView(){
+		
+                getSmarty()->assign('page_title', 'Kalkulator lokat');
+		getSmarty()->assign('form',$this->form);
+		getSmarty()->display('CalcView.php');		
 	}
 }

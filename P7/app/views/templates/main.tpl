@@ -21,6 +21,8 @@
             <li class="pure-menu-selected"><a href="#app_top">Góra strony</a></li>
             
             <li><a href="#app_content">Idź do formularza</a></li>
+            <li><a href="{$conf->action_url}logout"  class="pure-menu-heading pure-menu-link">Wyloguj się</a></li>
+{*	<span style="float:right;">użytkownik: {$user->login}, rola: {$user->role}</span>*}
         </ul></nav>
     </div>
     </div></div>

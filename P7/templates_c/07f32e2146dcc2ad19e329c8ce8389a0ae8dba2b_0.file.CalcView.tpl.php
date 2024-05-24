@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.5.2, created on 2024-05-24 22:15:26
-  from 'F:\Programy\xampp\htdocs\AI-repo\P7\app\views\CalcView.php' */
+/* Smarty version 4.5.2, created on 2024-05-24 21:34:51
+  from 'F:\Programy\xampp\htdocs\AI-repo\P7\app\views\CalcView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.5.2',
-  'unifunc' => 'content_6650f55ee54a62_38932551',
+  'unifunc' => 'content_6650ebdb153d48_12884123',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    'e9f3ee232f80fa338cab85d683ee01303ef3f149' => 
+    '07f32e2146dcc2ad19e329c8ce8389a0ae8dba2b' => 
     array (
-      0 => 'F:\\Programy\\xampp\\htdocs\\AI-repo\\P7\\app\\views\\CalcView.php',
-      1 => 1716581725,
+      0 => 'F:\\Programy\\xampp\\htdocs\\AI-repo\\P7\\app\\views\\CalcView.tpl',
+      1 => 1716579283,
       2 => 'file',
     ),
   ),
@@ -21,30 +21,28 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:messages.tpl' => 1,
   ),
 ),false)) {
-function content_6650f55ee54a62_38932551 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6650ebdb153d48_12884123 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14734667906650f55ee4bb74_96493433', 'footer');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7925816946650ebdb149e82_13968471', 'footer');
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14298913276650f55ee4c898_06997424', 'content');
-?>
-
-<?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7276824056650ebdb14ac08_83453758', 'content');
+$_smarty_tpl->inheritance->endChild($_smarty_tpl, "main.tpl");
 }
 /* {block 'footer'} */
-class Block_14734667906650f55ee4bb74_96493433 extends Smarty_Internal_Block
+class Block_7925816946650ebdb149e82_13968471 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'footer' => 
   array (
-    0 => 'Block_14734667906650f55ee4bb74_96493433',
+    0 => 'Block_7925816946650ebdb149e82_13968471',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -54,12 +52,12 @@ przykładowa tresć stopki wpisana do szablonu głównego z szablonu kalkulatora
 }
 /* {/block 'footer'} */
 /* {block 'content'} */
-class Block_14298913276650f55ee4c898_06997424 extends Smarty_Internal_Block
+class Block_7276824056650ebdb14ac08_83453758 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_14298913276650f55ee4c898_06997424',
+    0 => 'Block_7276824056650ebdb14ac08_83453758',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -73,7 +71,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
     <div class="container">
         <h3>Kalkulator lokaty</h3>
         <div class="row gtr-150">
-            <div class="col-4 col-12-medium">Wprowadź dane do kalkulatora lokat.</div>
+            <div class="col-4 col-12-medium">Cześć, <?php echo '<?php'; ?>
+ echo $role;
+echo($role == "admin") ? (" 😎✨") : (" 😊"); <?php echo '?>'; ?>
+! </br>Wprowadź dane do kalkulatora lokat.</div>
             
             <form action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 calcCompute" method="post">
@@ -98,24 +99,10 @@ calcCompute" method="post">
 ?>
 
 <?php if ((isset($_smarty_tpl->tpl_vars['res']->value->result))) {?>
-<div class ="col-4 col-12-medium">
-    <b>Zysk (zł):</b>
-            <table>
-                <tr>
-                    <th>BRUTTO</th>
-                    <th>NETTO</th>
-                </tr>
-                <td>
-                    <?php echo $_smarty_tpl->tpl_vars['res']->value->result;?>
- zł 
-                </td>
-                <td>
-                    <?php echo $_smarty_tpl->tpl_vars['res_n']->value->result_netto;?>
+<div class="messages info">
+	Wynik: <?php echo $_smarty_tpl->tpl_vars['res']->value->result;?>
 
-                </td>
-            </table>
-
-            </div>
+</div>
 <?php }?>
 
 <?php

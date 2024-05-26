@@ -2,7 +2,7 @@
 
 $conf->root_path = dirname(__FILE__);  
 $conf->server_name = 'localhost:80';
-$conf->app_root = '/AI-repo/P7';
+$conf->app_root = '/AI-repo/P8';
 $conf->css_path = $conf->app_url.'/assets/css/';
 $conf->action_root = $conf->app_root.'/ctrl.php?action=';
 

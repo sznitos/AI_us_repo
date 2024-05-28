@@ -79,6 +79,37 @@ class CalcCtrl {
                 $this->result_netto->result_netto = round($this->result->result * (1 - 0.23), 2);
 
                 getMessages()->addInfo('Wykonano obliczenia.');
+                
+                try {
+                    $database = new \Medoo\Medoo([
+                    // [required]
+                    'type' => 'mysql',
+                    'host' => 'localhost',
+                    'database' => 'kalk',
+                    'username' => 'bankier',
+                    'password' => 'wc5pNShZf9h[_]C.', //strong password
+                    // [optional]
+                    'charset' => 'utf8',
+                    'collation' => 'utf8_polish_ci',
+                    'port' => 3306,
+                    'option' => [
+                        \PDO::ATTR_CASE => \PDO::CASE_NATURAL,
+                        \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
+                    ]
+
+                ]);
+                    $database->insert("wynik", [
+                        "kwota" => $this->form->cash,
+                        "ile_miesiecy" => $this->form->time,
+                        "procent" => $this->form->percent,
+                        "przychod" => $this->result->result,
+                        "przychod_netto" => $this->result_netto->result_netto,
+                        "data" => date("Y-m-d H:i:s")
+                    ]);
+                } catch (\PDOException $ex) {
+                    // if any error show it
+                    getMessages()->addError("DB Error: ".$ex->getMessage());
+                }
             }
             $this->generateView();
         }

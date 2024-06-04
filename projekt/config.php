@@ -1,20 +1,12 @@
-<?php
-$conf->debug = true; # set true during development and use in your code (for instance check if true to send additional message)
+<?php 
 
-# ---- Webapp location
-$conf->server_name = 'localhost';   # server address and port
-$conf->protocol = 'http';           # http or https
-$conf->app_root = '/AI-repo/projekt/public';   # project subfolder in domain (relative to main domain)
+$conf->root_path = dirname(__FILE__);  
+$conf->server_name = 'localhost:80';
+$conf->app_root = '/AI-repo/projekt';
+$conf->css_path = $conf->app_url.'/assets/css/';
+$conf->action_root = $conf->app_root.'/ctrl.php?action=';
 
-# ---- Database config - values required by Medoo
-$conf->db_type = 'mysql';
-$conf->db_server = 'localhost';
-$conf->db_name = 'library_dbadmin';
-$conf->db_user = '_user';
-$conf->db_pass = 'WT-uVu8XOj@XCUl7';
-$conf->db_charset = 'utf8';
-
-# ---- Database config - optional values
-$conf->db_port = '3306';
-#$conf->db_prefix = '';
-$conf->db_option = [ PDO::ATTR_CASE => PDO::CASE_NATURAL, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION ];
+$conf->server_url = 'http://'.$conf->server_name;
+$conf->app_url = $conf->server_url.$conf->app_root;
+$conf->action_url = $conf->server_url.$conf->action_root;
+?>

@@ -1,6 +1,4 @@
-<?php
-
-namespace core;
+<?php namespace core;
 
 /**
  * Description of ClassLoader
@@ -10,16 +8,11 @@ namespace core;
 class ClassLoader {
 
     public $paths = array();
-    private $config = null;
 
-    public function __construct(&$config) {
-        if (!(isset($config) && $config instanceof Config)) {
-            throw new \Exception('Configuration missing or incorrect');
-        }
-        $this->config = $config;
+    public function __construct() {
         spl_autoload_register(function($class) {
             $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
-            $fileName = $this->config->root_path . DIRECTORY_SEPARATOR . $class . '.class.php';
+            $fileName = getConf()->root_path . DIRECTORY_SEPARATOR . $class . '.class.php';
             if (is_readable($fileName)) {
                 require_once $fileName;
             }
@@ -31,16 +24,11 @@ class ClassLoader {
         if (count($this->paths) == 1) {
             spl_autoload_register(function($class) {
                 $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
-                foreach ($this->paths as $path) {
+                foreach (getLoader()->paths as $path) {
                     $path = str_replace('\\', DIRECTORY_SEPARATOR, $path);
-                    $fileName = $this->config->root_path . $path . DIRECTORY_SEPARATOR . $class . '.php';
+                    $fileName = getConf()->root_path . $path . DIRECTORY_SEPARATOR . $class . '.class.php';
                     if (is_readable($fileName)) {
                         require_once $fileName;
-                    } else {
-                        $fileName = $this->config->root_path . $path . DIRECTORY_SEPARATOR . $class . '.class.php';
-                        if (is_readable($fileName)) {
-                            require_once $fileName;
-                        }
                     }
                 }
             });

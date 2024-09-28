@@ -13,46 +13,45 @@
 <body class="is-preload">
 <div id="page-wrapper">
     <div id="app_top">
-<header id="header">
+    <header id="header">
     <div id="app_top" class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
         <h1 id="logo"><a href="">{$page_title|default:"Tytuł domyślny"}</a></h1>
-        <nav id="nav">
-        <ul>
-            <li class="pure-menu-selected"><a href="#app_top">Góra strony</a></li>
-            
-            <li><a href="#app_content">Idź do formularza</a></li>
-            <li><a href="{$conf->action_url}logout"  class="pure-menu-heading pure-menu-link">Wyloguj się</a></li>
-{*	<span style="float:right;">użytkownik: {$user->login}, rola: {$user->role}</span>*}
-        </ul></nav>
+            <nav id="nav">
+            <ul>
+                <li><a href="#app_content">Administracja</a></li>
+                <li><a href="{$conf->action_url}logout"  class="pure-menu-heading pure-menu-link">Wyloguj się</a></li>
+    {*	<span style="float:right;">użytkownik: {$user->login}, rola: {$user->role}</span>*}
+            </ul>
+        </nav>
+    
     </div>
-    </div></div>
+    </header>
+    </div>
 <div id="main" class="wrapper style1">
     <div class="container">
     <section>
-        <h1>{$page_title|default:"Tytuł domyślny"}</h1>
-        <p>
+{*        <h1>{$page_title|default:"Tytuł domyślny"}</h1>*}
+        <h1>
              {$page_description|default:"Opis domyślny"}
-        </p>
-        <p><a href="#app_content" class="primary">Idź do formularza</a></p>
+        </h1>
     </section>
     </div>
-        <div class="content-wrapper">
 
     <div class="container">
 
 {block name=content} Domyślna treść zawartości .... {/block}
     </div>
-        </div></div></div>
+        </div>
 
 
 <!-- Footer -->
 				<footer id="footer">
 					<ul class="copyright">
-						<li>&copy; Michał Kromoliński. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; LibraApp by Michał Kromoliński. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</footer>
 
-		</div>
+</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

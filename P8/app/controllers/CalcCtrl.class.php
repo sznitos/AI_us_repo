@@ -11,6 +11,7 @@ class CalcCtrl {
     private $form;
     private $result;
     private $result_netto;
+    
 
     public function __construct() {
 //        $this->msgs = new Messages();
@@ -32,6 +33,7 @@ class CalcCtrl {
 
     //walidacja parametrów z przygotowaniem zmiennych dla widoku
     public function validate() {
+        
         // sprawdzenie, czy parametry zostały przekazane
         if (!(isset($this->form->cash) && isset($this->form->time) && isset( $this->form->percent))){
         return false;
